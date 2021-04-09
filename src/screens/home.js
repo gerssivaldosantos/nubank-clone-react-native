@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Dimensions,
-  Image
+  Image,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import Icon from "react-native-vector-icons/MaterialIcons";
@@ -30,7 +30,7 @@ export default function App() {
       <StatusBar
         barStyle="light-content"
         hidden={false}
-        backgroundColor="#6a0f8c"
+        backgroundColor="#66048d"
         style={"light"}
         translucent={false}
         networkActivityIndicatorVisible={true}
@@ -47,7 +47,7 @@ export default function App() {
             style={{ color: "white" }}
             name={isHidde ? "ios-eye-outline" : "ios-eye-off-outline"}
           />
-         {/*  <Image style={styles.buttonHiddeIcon} source={require("../assets/hidden.png")} /> */}
+          {/*  <Image style={styles.buttonHiddeIcon} source={require("../assets/hidden.png")} /> */}
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonSettings}>
@@ -69,7 +69,7 @@ export default function App() {
         style={styles.scrollContainer}
       >
         <View style={styles.cardContainer}>
-          <Ionicons style={styles.cardIcon} size={29} name="ios-card-outline" />
+          <Image style={styles.cardIcon} source={require("../assets/card.png")} />
 
           <Text style={styles.cardTitle}> Cartão de Crédito </Text>
 
@@ -82,26 +82,42 @@ export default function App() {
         </View>
 
         <View style={styles.accountContainer}>
-          <Ionicons
-            style={styles.accountIcon}
-            name="ios-cash-outline"
-            size={26}
-          />
+        <Image style={styles.accountIcon} source={require("../assets/cash.png")} />
           <Text style={styles.accountTitle}>Conta</Text>
           <Text style={styles.accountSubTitle}>Saldo disponível</Text>
           <Text style={styles.cash}>{isHidde ? hidden : saldoDisponivel}</Text>
         </View>
+        
 
         <View style={styles.SecureLifeContainer}>
-          <Text style={styles.SecureLifeTitle}>Seguro de vida</Text>
-          <Text style={styles.SecureLifeSubtitle}>Conheça Nubank Vida: um seguro{'\n'}
-             simples e que cabe no bolso</Text>
-             <View style={styles.borderButtonToMeet}></View>
-             <TouchableOpacity style={styles.buttonToMeet}>
-               <Text style={styles.titleToMeet}>Conhecer</Text>
-             </TouchableOpacity>
+          <Image
+            style={styles.cardIcon}
+            source={require("../assets/securelife.png")}
+          />
+          <Text style={styles.cardsTitle}>Seguro de vida</Text>
+          <Text style={styles.cardSubtitle}>
+            Conheça Nubank Vida: um seguro{"\n"}
+            simples e que cabe no bolso.
+          </Text>
+          <TouchableOpacity style={styles.buttonToMeet}>
+            <Text style={styles.titleToMeet}>CONHECER</Text>
+          </TouchableOpacity>
         </View>
 
+        <View style={styles.SecureLifeContainer}>
+          <Image
+            style={styles.cardIcon}
+            source={require("../assets/rewards.png")}
+          />
+          <Text style={styles.cardsTitle}>Rewards</Text>
+           <Text style={styles.cardSubtitle}>
+            Apague compras com pontos que nunca{"\n"}
+            expiram.
+          </Text>
+          <TouchableOpacity style={styles.buttonToMeet}>
+            <Text style={styles.titleToMeet}>CONHECER</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollAnimated>
       <ScrollAnimated
         animation="bounceInLeft"
@@ -111,18 +127,38 @@ export default function App() {
         style={styles.footer}
       >
         <View style={styles.childFooter}>
+          <Image
+            style={styles.footerIcon}
+            source={require("../assets/pix.png")}
+          />
           <Text style={styles.childFooterText}>Pix</Text>
         </View>
         <View style={styles.childFooter}>
+          <Image
+            style={styles.footerIcon}
+            source={require("../assets/pagar.png")}
+          />
           <Text style={styles.childFooterText}>Pagar</Text>
         </View>
         <View style={styles.childFooter}>
+          <Image
+            style={styles.footerIcon}
+            source={require("../assets/indicar.png")}
+          />
           <Text style={styles.childFooterText}>Indicar amigos</Text>
         </View>
         <View style={styles.childFooter}>
+          <Image
+            style={styles.footerIcon}
+            source={require("../assets/transferir.png")}
+          />
           <Text style={styles.childFooterText}>Transferir</Text>
         </View>
         <View style={styles.childFooter}>
+        <Image
+            style={styles.footerIcon}
+            source={require("../assets/depositar.png")}
+          />
           <Text style={styles.childFooterText}>Depositar</Text>
         </View>
         <View style={styles.childFooter}>
@@ -139,10 +175,14 @@ export default function App() {
   );
 }
 
+
+
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#8914b5",
+    backgroundColor: "#8a05be",
     alignItems: "center",
     justifyContent: "flex-start",
   },
@@ -164,13 +204,14 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 48,
     height: 48,
-    backgroundColor: "#b0b0b030",
+    backgroundColor: "#9824c7",
     justifyContent: "center",
     alignItems: "center",
     right: "20%",
     borderRadius: 50,
+    transform: [{rotateY: '180deg'}]
   },
- /*  buttonHiddeIcon:{
+  /*  buttonHiddeIcon:{
     height: 25,
     width:25,
     color:'white',
@@ -180,7 +221,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 48,
     height: 48,
-    backgroundColor: "#b0b0b030",
+    backgroundColor: "#9824c7",
     justifyContent: "center",
     alignItems: "center",
     right: "5%",
@@ -217,7 +258,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 24,
     top: 22,
-    color: "#828282",
+    width:29,
+    height:26
   },
   cardSubTitle: {
     position: "absolute",
@@ -232,7 +274,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     top: 90,
     fontSize: 25,
-    color: "#1fa9de",
+    color: "#29a0da",
   },
   limitTitle: {
     position: "absolute",
@@ -246,7 +288,7 @@ const styles = StyleSheet.create({
     left: 140,
     top: "76%",
     fontSize: 13,
-    color: "green",
+    color: "#227f46",
     fontWeight: "bold",
   },
   accountContainer: {
@@ -276,7 +318,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     left: 24,
     top: 22,
-    color: "#828282",
+    width:28,
+    height:28
   },
   accountSubTitle: {
     position: "absolute",
@@ -291,9 +334,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     top: 90,
     fontSize: 25,
-    color: "#232323",
+    color: "#404040",
   },
-  SecureLifeContainer:{
+  SecureLifeContainer: {
     height: 200,
     marginBottom: 18,
     backgroundColor: "white",
@@ -309,25 +352,48 @@ const styles = StyleSheet.create({
 
     elevation: 1,
   },
-  buttonToMeet:{
-    position:'absolute',
-    backgroundColor:'white',
-    bottom:20,
-    left:20,
-    padding:10,
-    width:130,
-    height:43,
-    borderRadius:3,
+  cardIcon: {
+    position: "absolute",
+    top: 15,
+    left: 17,
+    width: 44,
+    height: 44,
   },
-  borderButtonToMeet:{
-    position:'absolute',
-    backgroundColor:'#8914b5',
-    bottom:19,
-    left:19,
-    padding:9,
-    width:131,
-    height:45,
-    borderRadius:5,
+  cardsTitle: {
+    color: "#8a05be",
+    fontSize: 22,
+    position: "absolute",
+    left: 70,
+    top: 18,
+    fontWeight: "100",
+  },
+
+  cardSubtitle:{
+    color: "#505050",
+    position: "absolute",
+    top: 74,
+    left: 20,
+    fontSize:15.5
+  },
+  buttonToMeet: {
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    backgroundColor: "white",
+    bottom: 20,
+    left: 20,
+    padding: 10,
+    width: 120,
+    height: 43,
+    borderRadius: 5,
+    borderColor: "#8a05be",
+    borderStyle: "solid",
+    borderWidth: 0.7,
+  },
+  titleToMeet: {
+    color: "#8a05be",
+    fontSize: 14,
+    fontWeight: "bold",
   },
   footer: {
     height: 200,
@@ -340,15 +406,22 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     marginTop: 7,
     marginRight: 10,
-    backgroundColor: "#ffffff25",
+    backgroundColor: "#9824c7",
     height: 95,
-    width: 83,
+    width: 83.8,
     borderRadius: 2,
   },
   childFooterText: {
     fontSize: 13,
     color: "white",
-    marginLeft: 6,
-    marginBottom: 6,
+    marginLeft: 10,
+    marginBottom: 10,
+  },
+  footerIcon: {
+    width: 25,
+    height: 25,
+    position: "absolute",
+    top: 10,
+    left: 10,
   },
 });
