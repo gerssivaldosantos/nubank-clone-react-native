@@ -9,7 +9,12 @@ import {
   TouchableOpacity,
   ScrollView,
   Dimensions,
+  Image
 } from "react-native";
+import * as Animatable from "react-native-animatable";
+import Icon from "react-native-vector-icons/MaterialIcons";
+Icon.loadFont();
+const ScrollAnimated = Animatable.createAnimatableComponent(ScrollView);
 
 let deviceWidth = Dimensions.get("window").width;
 let deviceHeight = Dimensions.get("window").height;
@@ -18,6 +23,7 @@ export default function App() {
   const faturaAtual = "R$ 5,31";
   const saldoDisponivel = "R$ 8,90";
   const limite = "R$ 48,76";
+  const hidden = " ...........";
   const [isHidde, setisHidde] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
@@ -41,6 +47,7 @@ export default function App() {
             style={{ color: "white" }}
             name={isHidde ? "ios-eye-outline" : "ios-eye-off-outline"}
           />
+         {/*  <Image style={styles.buttonHiddeIcon} source={require("../assets/hidden.png")} /> */}
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonSettings}>
@@ -52,109 +59,82 @@ export default function App() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView contentContainerStyle={{
-        alignItems: 'center',
-
-        }} style={styles.scrollContainer}>
-          
+      <ScrollAnimated
+        animation="fadeInUp"
+        useNativeDriver
+        duration={1000}
+        contentContainerStyle={{
+          alignItems: "center",
+        }}
+        style={styles.scrollContainer}
+      >
         <View style={styles.cardContainer}>
           <Ionicons style={styles.cardIcon} size={29} name="ios-card-outline" />
 
           <Text style={styles.cardTitle}> Cartão de Crédito </Text>
 
           <Text style={styles.cardSubTitle}> Fatura atual</Text>
-          <Text style={styles.invoiceTitle}>{faturaAtual}</Text>
+          <Text style={styles.invoiceTitle}>
+            {isHidde ? hidden : faturaAtual}
+          </Text>
           <Text style={styles.limitTitle}>Limite disponível</Text>
-          <Text style={styles.limit}>{limite}</Text>
+          <Text style={styles.limit}>{isHidde ? hidden : limite}</Text>
         </View>
 
         <View style={styles.accountContainer}>
-          <Ionicons style={styles.accountIcon} name="ios-cash-outline" size={26}/>
-          <Text style={styles.accountTitle}>
-            Conta
-          </Text>
-          <Text style={styles.accountSubTitle}>
-            Saldo disponível
-          </Text>
-          <Text style={styles.cash}>
-            {saldoDisponivel}
-          </Text>
-
-        </View>
-        <View style={styles.cardContainer}>
-          <Ionicons style={styles.cardIcon} size={29} name="ios-card-outline" />
-
-          <Text style={styles.cardTitle}> Cartão de Crédito </Text>
-
-          <Text style={styles.cardSubTitle}> Fatura atual</Text>
-          <Text style={styles.invoiceTitle}>{faturaAtual}</Text>
-          <Text style={styles.limitTitle}>Limite disponível</Text>
-          <Text style={styles.limit}>{limite}</Text>
+          <Ionicons
+            style={styles.accountIcon}
+            name="ios-cash-outline"
+            size={26}
+          />
+          <Text style={styles.accountTitle}>Conta</Text>
+          <Text style={styles.accountSubTitle}>Saldo disponível</Text>
+          <Text style={styles.cash}>{isHidde ? hidden : saldoDisponivel}</Text>
         </View>
 
-        <View style={styles.accountContainer}>
-          <Ionicons style={styles.accountIcon} name="ios-cash-outline" size={26}/>
-          <Text style={styles.accountTitle}>
-            Conta
-          </Text>
-          <Text style={styles.accountSubTitle}>
-            Saldo disponível
-          </Text>
-          <Text style={styles.cash}>
-            {saldoDisponivel}
-          </Text>
-
-        </View>
-        <View style={styles.cardContainer}>
-          <Ionicons style={styles.cardIcon} size={29} name="ios-card-outline" />
-
-          <Text style={styles.cardTitle}> Cartão de Crédito </Text>
-
-          <Text style={styles.cardSubTitle}> Fatura atual</Text>
-          <Text style={styles.invoiceTitle}>{faturaAtual}</Text>
-          <Text style={styles.limitTitle}>Limite disponível</Text>
-          <Text style={styles.limit}>{limite}</Text>
+        <View style={styles.SecureLifeContainer}>
+          <Text style={styles.SecureLifeTitle}>Seguro de vida</Text>
+          <Text style={styles.SecureLifeSubtitle}>Conheça Nubank Vida: um seguro{'\n'}
+             simples e que cabe no bolso</Text>
+             <View style={styles.borderButtonToMeet}></View>
+             <TouchableOpacity style={styles.buttonToMeet}>
+               <Text style={styles.titleToMeet}>Conhecer</Text>
+             </TouchableOpacity>
         </View>
 
-        <View style={styles.accountContainer}>
-          <Ionicons style={styles.accountIcon} name="ios-cash-outline" size={26}/>
-          <Text style={styles.accountTitle}>
-            Conta
-          </Text>
-          <Text style={styles.accountSubTitle}>
-            Saldo disponível
-          </Text>
-          <Text style={styles.cash}>
-            {saldoDisponivel}
-          </Text>
-
-        </View>
-      </ScrollView>
-      <ScrollView horizontal={true} style={styles.footer}>
-        
+      </ScrollAnimated>
+      <ScrollAnimated
+        animation="bounceInLeft"
+        useNativeDriver
+        duration={1300}
+        horizontal={true}
+        style={styles.footer}
+      >
         <View style={styles.childFooter}>
-
+          <Text style={styles.childFooterText}>Pix</Text>
         </View>
         <View style={styles.childFooter}>
-
+          <Text style={styles.childFooterText}>Pagar</Text>
         </View>
         <View style={styles.childFooter}>
-
+          <Text style={styles.childFooterText}>Indicar amigos</Text>
         </View>
         <View style={styles.childFooter}>
-
+          <Text style={styles.childFooterText}>Transferir</Text>
         </View>
         <View style={styles.childFooter}>
-
+          <Text style={styles.childFooterText}>Depositar</Text>
         </View>
         <View style={styles.childFooter}>
-
+          <Text style={styles.childFooterText}>Cartão Virtual</Text>
         </View>
         <View style={styles.childFooter}>
-
+          <Text style={styles.childFooterText}>Recarga{"\n"} de celular</Text>
         </View>
-       
-      </ScrollView>
+        <View style={styles.childFooter}>
+          <Text style={styles.childFooterText}>Ajustar limite</Text>
+        </View>
+      </ScrollAnimated>
     </SafeAreaView>
   );
 }
@@ -190,6 +170,12 @@ const styles = StyleSheet.create({
     right: "20%",
     borderRadius: 50,
   },
+ /*  buttonHiddeIcon:{
+    height: 25,
+    width:25,
+    color:'white',
+    borderColor:'white',
+  }, */
   buttonSettings: {
     position: "absolute",
     width: 48,
@@ -200,14 +186,13 @@ const styles = StyleSheet.create({
     right: "5%",
     borderRadius: 50,
   },
-  scrollContainer:{
-    width:'100%',
-    
-    
+  scrollContainer: {
+    width: "100%",
+    height: "100%",
   },
   cardContainer: {
     height: 165,
-    marginBottom:18,
+    marginBottom: 18,
     backgroundColor: "white",
     width: deviceWidth - 38,
     borderRadius: 2,
@@ -264,9 +249,9 @@ const styles = StyleSheet.create({
     color: "green",
     fontWeight: "bold",
   },
-  accountContainer:{
+  accountContainer: {
     height: 150,
-    marginBottom:18,
+    marginBottom: 18,
     backgroundColor: "white",
     width: deviceWidth - 38,
     borderRadius: 2,
@@ -280,27 +265,27 @@ const styles = StyleSheet.create({
 
     elevation: 1,
   },
-  accountTitle:{
+  accountTitle: {
     position: "absolute",
     left: 72,
     top: 25,
     fontSize: 15,
     color: "#828282",
   },
-  accountIcon:{
-      position: "absolute",
-      left: 24,
-      top: 22,
-      color: "#828282",
+  accountIcon: {
+    position: "absolute",
+    left: 24,
+    top: 22,
+    color: "#828282",
   },
-  accountSubTitle:{
+  accountSubTitle: {
     position: "absolute",
     left: 27,
     top: 64,
     fontSize: 13,
     color: "#828282",
   },
-  cash:{
+  cash: {
     position: "absolute",
     left: 26.5,
     fontWeight: "bold",
@@ -308,19 +293,62 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: "#232323",
   },
-  footer:{
-    height:200,
-    paddingTop:10,
-    flexDirection:'row',
-    paddingLeft:20
-  },
-  childFooter:{
-    marginTop:7,
-    marginRight:10,
-    backgroundColor:'#ffffff25',
-    height:90,
-    width:90,
-    
+  SecureLifeContainer:{
+    height: 200,
+    marginBottom: 18,
+    backgroundColor: "white",
+    width: deviceWidth - 38,
+    borderRadius: 2,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 1,
 
-  }
+    elevation: 1,
+  },
+  buttonToMeet:{
+    position:'absolute',
+    backgroundColor:'white',
+    bottom:20,
+    left:20,
+    padding:10,
+    width:130,
+    height:43,
+    borderRadius:3,
+  },
+  borderButtonToMeet:{
+    position:'absolute',
+    backgroundColor:'#8914b5',
+    bottom:19,
+    left:19,
+    padding:9,
+    width:131,
+    height:45,
+    borderRadius:5,
+  },
+  footer: {
+    height: 200,
+    paddingTop: 10,
+    flexDirection: "row",
+    paddingLeft: 20,
+  },
+  childFooter: {
+    flexDirection: "row",
+    alignItems: "flex-end",
+    marginTop: 7,
+    marginRight: 10,
+    backgroundColor: "#ffffff25",
+    height: 95,
+    width: 83,
+    borderRadius: 2,
+  },
+  childFooterText: {
+    fontSize: 13,
+    color: "white",
+    marginLeft: 6,
+    marginBottom: 6,
+  },
 });
