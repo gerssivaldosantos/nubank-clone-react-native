@@ -91,7 +91,7 @@ export default function App() {
 
         <View style={styles.SecureLifeContainer}>
           <Image
-            style={styles.cardIcon}
+            style={styles.cardsIcon}
             source={require("../assets/securelife.png")}
           />
           <Text style={styles.cardsTitle}>Seguro de vida</Text>
@@ -106,7 +106,7 @@ export default function App() {
 
         <View style={styles.SecureLifeContainer}>
           <Image
-            style={styles.cardIcon}
+            style={styles.cardsIcon}
             source={require("../assets/rewards.png")}
           />
           <Text style={styles.cardsTitle}>Rewards</Text>
@@ -161,7 +161,8 @@ export default function App() {
           />
           <Text style={styles.childFooterText}>Depositar</Text>
         </View>
-        <View style={styles.childFooter}>
+        
+        {/* <View style={styles.childFooter}>
           <Text style={styles.childFooterText}>Cartão Virtual</Text>
         </View>
         <View style={styles.childFooter}>
@@ -169,7 +170,8 @@ export default function App() {
         </View>
         <View style={styles.childFooter}>
           <Text style={styles.childFooterText}>Ajustar limite</Text>
-        </View>
+        </View> */}
+        <View style={{width:27}} />
       </ScrollAnimated>
     </SafeAreaView>
   );
@@ -352,7 +354,7 @@ const styles = StyleSheet.create({
 
     elevation: 1,
   },
-  cardIcon: {
+  cardsIcon: {
     position: "absolute",
     top: 15,
     left: 17,

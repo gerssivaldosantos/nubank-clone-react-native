@@ -1,12 +1,16 @@
 {
-  "name": "NubankInterface",
-  "displayName": "NubankInterface",
   "expo": {
-    "name": "NubankInterface",
-    "slug": "NubankInterface",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+   "name": "Banco Nubank",
+   "icon": "./icon.png",
+   "version": "1.0.0",
+   "slug": "bancoroxoclone",
+   "ios": {
+     "bundleIdentifier": "com.andows.clonebancoroxo",
+     "buildNumber": "1.0.0"
+   },
+   "android": {
+     "package": "com.andows.bancoroxo",
+     "versionCode": 1
+   }
   }
 }
