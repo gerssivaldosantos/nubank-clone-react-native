@@ -1,16 +1,24 @@
-import * as React from 'react';
-import { View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import LoadingStart from "../screens/loadingStart";
+import Home from "../screens/home";
+import Register from "../screens/register";
 
 const Stack = createStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Navigator
+      initialRouteName="LoadingStart"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="LoadingStart" component={LoadingStart} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Register" component={Register}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

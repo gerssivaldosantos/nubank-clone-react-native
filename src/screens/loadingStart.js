@@ -1,9 +1,11 @@
 import React from "react";
-import { Text, Image, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity} from "react-native";
 import styles from "../styles/loadingStart";
 import * as Animatable from "react-native-animatable";
 import { StatusBar } from "expo-status-bar";
-export default function LoadingStart() {
+
+
+export default function LoadingStart({navigation}) {
   return (
 
     <View style={styles.container}>
@@ -42,13 +44,16 @@ export default function LoadingStart() {
           <Text style={styles.buttonMoreInfText}>Código Fonte</Text>
         </TouchableOpacity>
 
-      <Animatable.View style={styles.buttonsContainer}>
-        <TouchableOpacity style={styles.buttonMoreInf}>
+     
+        <TouchableOpacity 
+        style={styles.buttonMoreInf}
+        onPress={()=> navigation.navigate('Register')}>
+          
           <Text style={styles.buttonMoreInfText}>Iniciar</Text>
         </TouchableOpacity>
 
         
-      </Animatable.View>
+  
     </View>
   );
 }

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     height:13,
     width:13,
     position:'absolute',
-    top:'56.13%',
+    top:'56.4%',
     left:'54%'
   },
   message: {
@@ -52,6 +52,18 @@ const styles = StyleSheet.create({
   },
   buttonMoreInfText:{
       color:'white',
+  },
+  
+  input:{
+    color:'white',
+    borderWidth:0.7,
+    borderColor:'white',
+    borderStyle:'solid',
+    width:'80%',
+    height:45,
+    borderRadius:3,
+    marginBottom:30,
+    paddingLeft:10
 
   }
 });

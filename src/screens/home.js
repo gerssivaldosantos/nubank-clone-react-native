@@ -12,17 +12,20 @@ import {
   Image,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
-import Icon from "react-native-vector-icons/MaterialIcons";
-Icon.loadFont();
+import Register from '../screens/register'
 const ScrollAnimated = Animatable.createAnimatableComponent(ScrollView);
 
 let deviceWidth = Dimensions.get("window").width;
 let deviceHeight = Dimensions.get("window").height;
-export default function App() {
-  const usuario = "Gerssivaldo";
-  const faturaAtual = "R$ 5,31";
-  const saldoDisponivel = "R$ 8,90";
-  const limite = "R$ 48,76";
+
+
+
+export default function Home({route}) {
+
+  const usuario = route.params?.name.name
+  const faturaAtual = String(route.params?.currentInvoice)
+  const saldoDisponivel = String(route.params?.balance)
+  const limite = String(route.params?.limitAvailable)
   const hidden = " ...........";
   const [isHidde, setisHidde] = useState(false);
   return (
