@@ -5,41 +5,42 @@ import * as Animatable from "react-native-animatable";
 import { StatusBar } from "expo-status-bar";
 
 export default function Register({ navigation }) {
-  const [balance, setBalance] = useState(0);
-  const [name, setName] = useState("Nome");
-  const [currentInvoice, setCurrentInvoice] = useState(0);
-  const [limitAvailable, setLimitAvailable] = useState(0);
+  const [name, setName] = useState("Nubank");
+  const [balance, setBalance] = useState(1000);
+  const [currentInvoice, setCurrentInvoice] = useState(1000);
+  const [limitAvailable, setLimitAvailable] = useState(1000);
 
   return (
     <View style={styles.container}>
-     
       <Image style={styles.nubankIcon} source={require("../assets/icon.png")} />
       <TextInput
-      textContentType="name"
+        textContentType="name"
         keyboardType="default"
         placeholder="Nome do titular"
         style={styles.input}
         placeholderTextColor={"white"}
-        onChange={(text)=> setName(text)}
+        onChangeText={(text) => setName(text)}
       />
       <TextInput
         keyboardType="numeric"
         placeholder="Saldo em Conta"
         style={styles.input}
         placeholderTextColor={"white"}
-        onChange={(number)=> setBalance(number)}
+        onChangeText={(number) => setBalance(number)}
       />
       <TextInput
         keyboardType="numeric"
         placeholder="Fatura Atual"
         style={styles.input}
         placeholderTextColor={"white"}
+        onChangeText={(number) => setCurrentInvoice(number)}
       />
       <TextInput
         keyboardType="numeric"
         placeholder="Limite Disponível"
         style={styles.input}
         placeholderTextColor={"white"}
+        onChangeText={(number) => setLimitAvailable(number)}
       />
 
       <TouchableOpacity

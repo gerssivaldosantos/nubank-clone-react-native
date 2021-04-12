@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity} from "react-native";
 import styles from "../styles/loadingStart";
 import * as Animatable from "react-native-animatable";
 import { StatusBar } from "expo-status-bar";
-
+import * as Linking from 'expo-linking';
 
 export default function LoadingStart({navigation}) {
   return (
@@ -40,7 +40,9 @@ export default function LoadingStart({navigation}) {
         Versão criada por        gess.dev
       </Animatable.Text>
 
-      <TouchableOpacity style={styles.buttonGithub}>
+      <TouchableOpacity 
+      onPress={()=> Linking.openURL('https://github.com/andows159/NubankInterfaceReactNative')}
+      style={styles.buttonGithub}>
           <Text style={styles.buttonMoreInfText}>Código Fonte</Text>
         </TouchableOpacity>
 

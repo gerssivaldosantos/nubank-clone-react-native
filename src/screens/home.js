@@ -22,10 +22,10 @@ let deviceHeight = Dimensions.get("window").height;
 
 export default function Home({route}) {
 
-  const usuario = route.params?.name.name
-  const faturaAtual = String(route.params?.currentInvoice)
-  const saldoDisponivel = String(route.params?.balance)
-  const limite = String(route.params?.limitAvailable)
+  const usuario = route.params?.name
+  const faturaAtual = route.params?.currentInvoice
+  const saldoDisponivel = route.params?.balance
+  const limite = route.params?.limitAvailable
   const hidden = " ...........";
   const [isHidde, setisHidde] = useState(false);
   return (
@@ -78,17 +78,17 @@ export default function Home({route}) {
 
           <Text style={styles.cardSubTitle}> Fatura atual</Text>
           <Text style={styles.invoiceTitle}>
-            {isHidde ? hidden : faturaAtual}
+            R$ {isHidde ? hidden : faturaAtual}
           </Text>
           <Text style={styles.limitTitle}>Limite disponível</Text>
-          <Text style={styles.limit}>{isHidde ? hidden : limite}</Text>
+          <Text style={styles.limit}>R$ {isHidde ? hidden : limite}</Text>
         </View>
 
         <View style={styles.accountContainer}>
         <Image style={styles.accountIcon} source={require("../assets/cash.png")} />
           <Text style={styles.accountTitle}>Conta</Text>
           <Text style={styles.accountSubTitle}>Saldo disponível</Text>
-          <Text style={styles.cash}>{isHidde ? hidden : saldoDisponivel}</Text>
+          <Text style={styles.cash}>R$ {isHidde ? hidden : saldoDisponivel}</Text>
         </View>
         
 
