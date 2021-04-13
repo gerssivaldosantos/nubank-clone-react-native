@@ -8,7 +8,7 @@ In this application I did not use a database, all the data shown in the interfac
   <h6 align="center">Screens on Android</h6>
 </p>
 
-<h3 align="center">Main technologies used<h3>
+### Main technologies used
   <p> 
     
 - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/) - Javascript is a very popular high-level programming language that can be applied in a variety of scenarios
@@ -20,3 +20,15 @@ In this application I did not use a database, all the data shown in the interfac
 - [Expo](https://expo.io/) - Expo is an open-source platform for making universal native apps for Android, iOS, and the web with JavaScript and React.
 
 </p>
+
+### Requirements to run the application on your machine
+To run, just have Node, React Native and Expo installed on your machine, for that, follow the tutorials below to install them
+
+- [How to install Node](https://nodejs.dev/)
+
+- [How to install React Native](https://reactnative.dev/docs/getting-started)
+
+- [How to install Expo](https://docs.expo.io/get-started/installation/)
+### How to run after all requeriments installeds
+
+After having all your environment set up correctly, clone the project repository to a location of your choice on your machine, open a terminal inside the project folder and start the expo `expo start`, a developer tools window is opened in your default browser, note that there is a QR code in it. Search for `Expo` in your app store, be it PlayStore or AppleStore, and download the expo app, with this application, scan the Qr code and the application will start on your device.
