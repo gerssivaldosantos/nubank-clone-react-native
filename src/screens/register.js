@@ -6,9 +6,9 @@ import { StatusBar } from "expo-status-bar";
 
 export default function Register({ navigation }) {
   const [name, setName] = useState("Nubank");
-  const [balance, setBalance] = useState(1000);
-  const [currentInvoice, setCurrentInvoice] = useState(1000);
-  const [limitAvailable, setLimitAvailable] = useState(1000);
+  const [balance, setBalance] = useState(9999);
+  const [currentInvoice, setCurrentInvoice] = useState(9999);
+  const [limitAvailable, setLimitAvailable] = useState(9999);
 
   return (
     <View style={styles.container}>
