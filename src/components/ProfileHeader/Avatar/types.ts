@@ -1,3 +1,3 @@
 export type Props = {
-    avatar: string;
-}
+  avatar: string;
+};

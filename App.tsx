@@ -7,10 +7,10 @@ import Home from './src/screens/Home';
 export default function App() {
   return (
     <ThemeProvider theme={light}>
-    <Container>
-      <StatusBar style="auto" />
-      <Home/>
-    </Container>
+      <Container>
+        <StatusBar style="auto" />
+        <Home />
+      </Container>
     </ThemeProvider>
   );
 }
