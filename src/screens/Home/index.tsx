@@ -1,10 +1,11 @@
 import React from 'react';
-import { Container, TransparentButton } from './styles';
+import { BarcodeIcon, Container, SmartphoneIcon, MoneyBillIcon, PixIcon, TransparentButton } from './styles';
 import Header from '@/components/ProfileHeader';
 import { Text } from 'react-native';
 import { ProfileImage } from 'assets-stash/mocked';
 import { ButtonSwith } from '@/components/ButtonSwitch';
 import { FontAwesome6 } from '@expo/vector-icons';
+import { Actions } from '@/components/Actions';
 
 const Home: React.FC = () => {
   return (
@@ -32,6 +33,34 @@ const Home: React.FC = () => {
         </Header.ActionsWrapper>
         <Header.Title text="Olá, Profile" />
       </Header.Root>
+      <Actions.Root>
+        <Actions.Action>
+          <Actions.Button>
+            <PixIcon />
+          </Actions.Button>
+          <Actions.Label>
+            <Text>Área pix</Text>
+          </Actions.Label>
+        </Actions.Action>
+        <Actions.Action>
+          <Actions.Button>
+            <BarcodeIcon />
+          </Actions.Button>
+          <Actions.Label>Pagar</Actions.Label>
+        </Actions.Action>
+        <Actions.Action>
+          <Actions.Button>
+            <MoneyBillIcon />
+          </Actions.Button>
+          <Actions.Label>Transferir</Actions.Label>
+        </Actions.Action>
+        <Actions.Action>
+          <Actions.Button>
+            <SmartphoneIcon />
+          </Actions.Button>
+          <Actions.Label>Recarga de celular</Actions.Label>
+        </Actions.Action>
+      </Actions.Root>
     </Container>
   );
 };
