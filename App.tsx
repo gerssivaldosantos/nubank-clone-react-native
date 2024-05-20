@@ -1,14 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import styled, { ThemeProvider } from 'styled-components/native';
 import light from './src/themes/light';
 import Home from './src/screens/Home';
+import React from 'react';
 
 export default function App() {
   return (
     <ThemeProvider theme={light}>
       <Container>
-        <StatusBar style="auto" />
+        <StatusBar translucent={false} backgroundColor={light.primary} style="light" />
         <Home />
       </Container>
     </ThemeProvider>
