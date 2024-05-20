@@ -1,5 +1,15 @@
 import React from 'react';
-import { BarcodeIcon, Container, SmartphoneIcon, MoneyBillIcon, PixIcon, TransparentButton } from './styles';
+import {
+  BarcodeIcon,
+  Container,
+  MoneyBillIcon,
+  PixIcon,
+  TransparentButton,
+  Body,
+  CircleDollarIcon,
+  ChartSimpleIcon,
+  HandDollarIcon,
+} from './styles';
 import Header from '@/components/ProfileHeader';
 import { Text } from 'react-native';
 import { ProfileImage } from 'assets-stash/mocked';
@@ -56,9 +66,21 @@ const Home: React.FC = () => {
         </Actions.Action>
         <Actions.Action>
           <Actions.Button>
-            <SmartphoneIcon />
+            <CircleDollarIcon />
           </Actions.Button>
-          <Actions.Label>Recarga de celular</Actions.Label>
+          <Actions.Label>Cobrar</Actions.Label>
+        </Actions.Action>
+        <Actions.Action>
+          <Actions.Button>
+            <ChartSimpleIcon />
+          </Actions.Button>
+          <Actions.Label>Investir</Actions.Label>
+        </Actions.Action>
+        <Actions.Action>
+          <Actions.Button>
+            <HandDollarIcon />
+          </Actions.Button>
+          <Actions.Label>Caixinhas</Actions.Label>
         </Actions.Action>
       </Actions.Root>
     </Container>
